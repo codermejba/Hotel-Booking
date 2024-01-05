@@ -157,7 +157,7 @@ const NavBar = styled.nav`
     font-weight: 600;
     transition: all 0.4s ease-out 0s;
     text-transform: capitalize;
-    padding: 30px;
+    padding: 35px 30px;
     font-family: var(--heading-font);
     cursor: pointer;
     svg {
@@ -185,7 +185,7 @@ const NavBar = styled.nav`
     border: 1px solid black;
     padding: 0px 18px;
     position: absolute;
-    width: 218px;
+    width: 200px;
     left: 0;
     top: -115vh;
     z-index: -999;
@@ -213,7 +213,7 @@ const NavBar = styled.nav`
       display: block;
     }
     //css logic for toggle .menu
-    
+
     #check:checked ~ .menu {
       top: 15vh;
     }
