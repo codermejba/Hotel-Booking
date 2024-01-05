@@ -1,4 +1,4 @@
-# Hotel Booking 
+# Hotel Booking React UI
 
 i will make it full responsive by using react ,styled component
 
