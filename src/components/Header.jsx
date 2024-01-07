@@ -11,10 +11,10 @@ function Header() {
 
       <NavBar>
         <input type="checkbox" id="check" />
-        <label for="check" className="checkedbtn">
+        <label htmlFor="check" className="checkedbtn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Menu">
-            <g data-name="Layer 2" fill="#ffffff" class="color000000 svgShape">
-              <g data-name="menu" fill="#ffffff" class="color000000 svgShape">
+            <g data-name="Layer 2" fill="#ffffff"  className="color000000 svgShape">
+              <g data-name="menu" fill="#ffffff"  className="color000000 svgShape">
                 <rect
                   width="18"
                   height="2"
@@ -23,7 +23,7 @@ function Header() {
                   rx=".95"
                   ry=".95"
                   fill="#ffffff"
-                  class="color000000 svgShape"
+                   className="color000000 svgShape"
                 ></rect>
                 <rect
                   width="18"
@@ -33,7 +33,7 @@ function Header() {
                   rx=".95"
                   ry=".95"
                   fill="#ffffff"
-                  class="color000000 svgShape"
+                   className="color000000 svgShape"
                 ></rect>
                 <rect
                   width="18"
@@ -43,7 +43,7 @@ function Header() {
                   rx=".95"
                   ry=".95"
                   fill="#ffffff"
-                  class="color000000 svgShape"
+                   className="color000000 svgShape"
                 ></rect>
               </g>
             </g>
@@ -62,22 +62,22 @@ function Header() {
               <g
                 data-name="Layer 2"
                 fill="#ffffff"
-                class="color000000 svgShape"
+                 className="color000000 svgShape"
               >
                 <g
                   data-name="arrowhead-down"
                   fill="#ffffff"
-                  class="color000000 svgShape"
+                   className="color000000 svgShape"
                 >
                   <path
                     d="M17.37 12.39 12 16.71l-5.36-4.48a1 1 0 1 0-1.28 1.54l6 5a1 1 0 0 0 1.27 0l6-4.83a1 1 0 0 0 .15-1.41 1 1 0 0 0-1.41-.14z"
                     fill="#ffffff"
-                    class="color000000 svgShape"
+                     className="color000000 svgShape"
                   ></path>
                   <path
                     d="M11.36 11.77a1 1 0 0 0 1.27 0l6-4.83a1 1 0 0 0 .15-1.41 1 1 0 0 0-1.41-.15L12 9.71 6.64 5.23a1 1 0 0 0-1.28 1.54z"
                     fill="#ffffff"
-                    class="color000000 svgShape"
+                     className="color000000 svgShape"
                   ></path>
                 </g>
               </g>
@@ -116,7 +116,7 @@ function Header() {
 
 //all header styled are here but Button styled imported
 const HeaderSection = styled.div`
-  border-bottom: 1px solid var(--color-2);
+  border-bottom: 1px solid var(--primary-color);
   height: 15vh;
   padding: 0px 50px;
   background: #000;
@@ -134,6 +134,9 @@ const HeaderSection = styled.div`
   }
 `;
 const NavBar = styled.nav`
+height: 100%;
+display: flex;
+    align-items: center;
   #check,
   .checkedbtn {
     display: none;
@@ -143,21 +146,22 @@ const NavBar = styled.nav`
     height: 50px;
   }
   .menu {
+    height: 100%;
     display: flex;
     transition: all 0.5s;
     align-items: center;
   }
   li {
+    height: 100%;
     position: relative;
     color: var(--white);
     display: flex;
     align-items: center;
     font-size: 18px;
-    line-height: 28px;
     font-weight: 600;
     transition: all 0.4s ease-out 0s;
     text-transform: capitalize;
-    padding: 35px 30px;
+    padding: 0px 30px;
     font-family: var(--heading-font);
     cursor: pointer;
     svg {
@@ -168,6 +172,7 @@ const NavBar = styled.nav`
 
     &:hover {
       color: var(--primary-color);
+      z-index: 1;
     }
     &:hover svg {
       transform: rotate(180deg);
@@ -177,24 +182,28 @@ const NavBar = styled.nav`
       }
     }
     &:hover .dropdown {
-      top: 15vh;
+      height: 200px;
+      padding: 0px 18px;
     }
   }
-
+  
   .dropdown {
-    border: 1px solid black;
-    padding: 0px 18px;
-    position: absolute;
     width: 200px;
+    border: 1px solid black;
+    position: absolute;
     left: 0;
-    top: -115vh;
-    z-index: -999;
+    top: 15vh;
+    height: 0;
+    padding: 0px;
     background: #ffffff;
     transition: all 0.5s;
+    z-index: -999;
     > :last-child {
       border-bottom: none;
     }
     li {
+      height: 50px;
+      text-wrap: nowrap;
       color: black;
       display: flex;
       align-items: center;
@@ -207,7 +216,11 @@ const NavBar = styled.nav`
   }
 
   //using media query for navigation bar
-
+  @media (max-width: 1125px){
+    li{
+      padding: 35px 20px;
+    }
+  }
   @media (max-width: 1000px) {
     .checkedbtn {
       display: block;
@@ -219,7 +232,7 @@ const NavBar = styled.nav`
     }
     .menu {
       position: fixed;
-      height: 50vh;
+      min-height: 50vh;
       margin: 0 auto;
       left: 10vw;
       right: 10vw;
