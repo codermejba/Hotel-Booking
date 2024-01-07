@@ -148,7 +148,7 @@ display: flex;
   .menu {
     height: 100%;
     display: flex;
-    transition: all 0.5s;
+    transition: all 0.3s;
     align-items: center;
   }
   li {
@@ -182,6 +182,7 @@ display: flex;
       }
     }
     &:hover .dropdown {
+      opacity: 1;
       height: 200px;
       padding: 0px 18px;
     }
@@ -197,7 +198,8 @@ display: flex;
     padding: 0px;
     background: #ffffff;
     transition: all 0.5s;
-    z-index: -999;
+    overflow: hidden;
+    opacity: 0;
     > :last-child {
       border-bottom: none;
     }
@@ -228,27 +230,35 @@ display: flex;
     //css logic for toggle .menu
 
     #check:checked ~ .menu {
-      top: 15vh;
+      opacity  : 1;
+      z-index: 1;
     }
     .menu {
-      position: fixed;
+      position: absolute;
       min-height: 50vh;
+      width: 80vw;
       margin: 0 auto;
-      left: 10vw;
-      right: 10vw;
-      top: -100%;
+      overflow: hidden;
+      opacity: 0;
+      left: 0;
+      right: 0;
+      top: 15vh;
       background: var(--white);
       flex-direction: column;
       align-items: normal;
+      z-index: -999;
     }
     li {
       display: block;
       color: var(--black);
-      padding: 10px 35px;
+      padding: 15px 35px;
+      height: unset;
       border-bottom: 1px solid var(--primary-color);
       svg {
         border-radius: 2px;
-        height: 20px;
+        height: 15px;
+        margin: 0;
+        margin-top: 5px;
         background: var(--primary-color);
         float: right;
       }

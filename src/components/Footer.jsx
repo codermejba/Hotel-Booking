@@ -374,7 +374,7 @@ const FooterSection = styled.div`
     }
   }
   footer {
-    height: 15vh;
+    min-height: 15vh;
     border-top: 1px solid var(--primary-color);
     display: flex;
     align-items: center;
@@ -391,6 +391,20 @@ const FooterSection = styled.div`
       p {
         padding: 0px 10px;
         border-right: 2px solid var(--primary-color);
+      }
+    }
+  }
+  @media (max-width:330px){
+    footer{
+      flex-direction: column;
+      .footerRight{
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        p{
+          border-right: 0;
+          border-bottom: 1px solid var(--primary-color);
+        }
       }
     }
   }
@@ -508,6 +522,7 @@ const FooterContainer = styled.div`
           font-size: 1rem;
         }
         svg {
+          cursor: pointer;
           border: 1px solid;
           height: 50px;
           background: var(--primary-color);
@@ -526,6 +541,9 @@ const FooterContainer = styled.div`
     }
     @media (max-width: 730px) {
       grid-template-columns: 1fr;
+    }
+    @media (max-width:330px){
+      max-width: 250px;
     }
     
   }
