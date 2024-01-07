@@ -203,7 +203,7 @@ display: flex;
     }
     li {
       height: 50px;
-      text-wrap: nowrap;
+      white-space: nowrap;
       color: black;
       display: flex;
       align-items: center;
