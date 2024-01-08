@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../styled/Button";
+import { Button } from "../assets/styled/Button";
 
 const RoomCheckout = () => {
     const [value,setValue]=useState(1)
@@ -22,14 +22,12 @@ const RoomCheckout = () => {
           <input type="button" className="btn" value={"+"} onClick={()=>setValue(value+1)} />
         </div>
       </div>
-      <Button>check now</Button>
+      <Button><span>check now</span></Button>
     </CheckOutSection>
   );
 };
 
 const CheckOutSection = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 80vw;
@@ -89,16 +87,28 @@ const CheckOutSection = styled.div`
       }
     }
   }
+  span{
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+
+  }
   /* Media Query for responsiveness */
+  @media (min-width: 1400px){
+    max-width: 1320px;
+    margin: 0 auto;
+  }
   @media (max-width: 1050px){
-    left: 5vw;
-  right: 5vw;
+    width: 90vw;
   }
   @media (max-width: 975px) {
       grid-template-columns: repeat(2, 1fr);
     }
     @media (max-width: 730px) {
       grid-template-columns: 1fr;
+      span{
+        padding: 10px 0px;
+      }
     }
     @media (max-width: 330px) {
       width: 95vw;

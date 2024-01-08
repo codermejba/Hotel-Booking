@@ -48,7 +48,7 @@ export const Button = styled.button`
     }
 
     &:hover{
-        background: var(--white);
+       // background: var(--white);
         color: var(--black);
         left: 0;
         svg path{
