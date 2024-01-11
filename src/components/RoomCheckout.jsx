@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { Button } from "../assets/styled/Button";
 
 const RoomCheckout = () => {
-    const [value,setValue]=useState(1)
+    const [count,setCount]=useState(1)
+    const [inputValue, setInputValue] = useState("Initial Value");
+
+const handleChange = (e) => {
+  setInputValue(e.target.value);
+};
   return (
     <CheckOutSection>
       <div className="checkOutCalculation">
@@ -17,9 +22,9 @@ const RoomCheckout = () => {
       <div className="checkOutCalculation">
         <p>room</p>
         <div className="counter">
-          <input type="button" className="btn" value={"-"} onClick={()=>setValue(value-1)} />
-          <input type="number" className="countNumber" value={value} />
-          <input type="button" className="btn" value={"+"} onClick={()=>setValue(value+1)} />
+          <input type="button" className="btn" defaultValue={"-"} onClick={()=>setCount(count-1)} />
+          <input type="number" className="countNumber" value={count} onChange={handleChange} />
+          <input type="button" className="btn" defaultValue={"+"} onClick={()=>setCount(count+1)} />
         </div>
       </div>
       <Button><span>check now</span></Button>

@@ -44,6 +44,12 @@ const AccommodationsSection = styled.div`
       height: 100%;
       span {
         color: var(--primary-color);
+        font-weight: 600;
+      }
+      h1{
+        letter-spacing: 1px;
+    font-family: var(--heading-font);
+
       }
       h1,
       p {
@@ -72,7 +78,6 @@ const AccommodationsSection = styled.div`
   }
   // Media Query for responsiveness
   @media (min-width: 1400px) {
-
     max-width: 1320px;
     margin: 0 auto;
   }

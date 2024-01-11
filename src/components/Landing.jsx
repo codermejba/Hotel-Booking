@@ -17,7 +17,7 @@ const Landing = () => {
           <label htmlFor="play" onClick={playVideo}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              enable-background="new 0 0 512 512"
+              enableBackground="new 0 0 512 512"
               viewBox="0 0 512 512"
               id="video-player"
             >
@@ -36,9 +36,9 @@ const Landing = () => {
             height="400"
             src={playVideosrc}
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
