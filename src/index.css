@@ -5,6 +5,22 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
+body {
+  font-family: var(--body-font);
+  color: var(--body-color);
+  font-size: 15px;
+  font-weight: 400;
+}
+p {
+  line-height: 26px;
+}
+h1 {
+  font-weight: 500;
+}
+h2{
+  font-family: var(--heading-font);
+}
 :root {
   --body-font: "Poppins", sans-serif;
   --heading-font: "Bai Jamjuree", sans-serif;

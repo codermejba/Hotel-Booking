@@ -5,7 +5,9 @@ const Landing = () => {
   //useState for auto play video
   const [playVideosrc, setPlayVideosrc] = useState();
   function playVideo() {
-    setPlayVideosrc("https://www.youtube.com/embed/2u4QKDoA5cc?si=8ZE0hIsSV4I33hME&autoplay=1");
+    setPlayVideosrc(
+      "https://www.youtube.com/embed/2u4QKDoA5cc?si=8ZE0hIsSV4I33hME&autoplay=1"
+    );
   }
   return (
     <LandingSection>
@@ -42,15 +44,14 @@ const Landing = () => {
           ></iframe>
         </div>
       </div>
-      
     </LandingSection>
   );
 };
 
 const LandingSection = styled.div`
-    height: 100vh;
+  height: 100vh;
   .landingBg {
-      height: 50%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,10 +59,13 @@ const LandingSection = styled.div`
     color: white;
     font-family: var(--heading-font);
     font-size: 2.5rem;
+    line-height: 2.5em;
     h1 {
+      font-size: 2em;
       margin: 100px 0 0 100px;
     }
     h2 {
+      font-size: 1.5em;
       margin: 0 0 0 300px;
     }
     #play {
@@ -106,49 +110,50 @@ const LandingSection = styled.div`
     top: 0;
     left: 0;
     background: linear-gradient(#00000082, #00000036);
-    height:135%;
+    height: 135%;
     width: 100%;
     z-index: -1;
   }
 
-  @media(max-width: 950px){
-    .landingBg{
-    font-size: 2rem;
-    align-items: center;
+  @media (max-width: 950px) {
+    .landingBg {
+      font-size: 2rem;
+      align-items: center;
 
-    h1{
-      margin: 0;
-    }
-    h2{
-      margin: 0 0 0 240px;
-    }
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        margin: 0 0 0 240px;
+      }
     }
   }
-  @media(max-width: 750px){
-    .landingBg{
+  @media (max-width: 750px) {
+    .landingBg {
       align-items: start;
       padding: 40px;
       font-size: 1.5rem;
     }
   }
-  @media(max-width: 650px){
-    .landingBg{
+  @media (max-width: 650px) {
+    .landingBg {
       font-size: unset;
       align-items: center;
-      h1,h2{
+      h1,
+      h2 {
         white-space: nowrap;
-      margin: 0;
+        margin: 0;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+
+      label svg {
+        right: 35%;
+        bottom: 15%;
+      }
     }
-    h2{
-      font-size: 2rem;
-    }
-    
-    label svg{
-      right: 35%;
-    bottom: 15%;
-    }}
   }
-  
 `;
 
 export default Landing;

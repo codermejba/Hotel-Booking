@@ -46,10 +46,9 @@ const AccommodationsSection = styled.div`
         color: var(--primary-color);
         font-weight: 600;
       }
-      h1{
+      h1 {
         letter-spacing: 1px;
-    font-family: var(--heading-font);
-
+        font-family: var(--heading-font);
       }
       h1,
       p {

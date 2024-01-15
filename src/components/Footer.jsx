@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 function Footer() {
-    const inlineCss={
-        marginTop: '0'
-    }
+  const inlineCss = {
+    marginTop: "0",
+  };
   return (
     <FooterSection>
       <FooterContainer>
@@ -84,10 +84,7 @@ function Footer() {
           <div className="footerCard">
             <h2>Information</h2>
             <div className="cardBody">
-              <div
-                className="cardIcon simpleCardIcon"
-                style={inlineCss}
-              >
+              <div className="cardIcon simpleCardIcon" style={inlineCss}>
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +184,7 @@ function Footer() {
           </div>
           <div className="footerCard">
             <h2>Pages Links</h2>
-            <div className="cardBody iconSlider">
+            <div className="cardBody iconSlider ">
               <div>
                 <a href="/">
                   <svg
@@ -367,6 +364,7 @@ function Footer() {
 
 const FooterSection = styled.div`
   a {
+    text-decoration: none;
     color: white;
     transition: all 0.3s;
     &:hover {
@@ -394,14 +392,14 @@ const FooterSection = styled.div`
       }
     }
   }
-  @media (max-width:330px){
-    footer{
+  @media (max-width: 330px) {
+    footer {
       flex-direction: column;
-      .footerRight{
+      .footerRight {
         align-items: center;
         flex-direction: column;
         width: 100%;
-        p{
+        p {
           border-right: 0;
           border-bottom: 1px solid var(--primary-color);
         }
@@ -440,6 +438,7 @@ const FooterContainer = styled.div`
       padding: 30px;
       //border: 1px solid;
       h2 {
+        font-size: 24px;
         padding-bottom: 4px;
         border-bottom: 1px solid var(--primary-color);
       }
@@ -517,7 +516,7 @@ const FooterContainer = styled.div`
         input {
           border: none;
           outline: none;
-          padding: 16px 10px;
+          padding: 13px 10px;
           width: 150px;
           font-size: 1rem;
         }
@@ -534,7 +533,7 @@ const FooterContainer = styled.div`
 
     @media (max-width: 975px) {
       grid-template-columns: repeat(2, 1fr);
-      .subscription input{
+      .subscription input {
         width: 0px;
         min-width: 200px;
       }
@@ -542,10 +541,9 @@ const FooterContainer = styled.div`
     @media (max-width: 730px) {
       grid-template-columns: 1fr;
     }
-    @media (max-width:330px){
+    @media (max-width: 330px) {
       max-width: 250px;
     }
-    
   }
   .iconSlider {
     svg {

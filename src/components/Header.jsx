@@ -13,8 +13,16 @@ function Header() {
         <input type="checkbox" id="check" />
         <label htmlFor="check" className="checkedbtn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Menu">
-            <g data-name="Layer 2" fill="#ffffff"  className="color000000 svgShape">
-              <g data-name="menu" fill="#ffffff"  className="color000000 svgShape">
+            <g
+              data-name="Layer 2"
+              fill="#ffffff"
+              className="color000000 svgShape"
+            >
+              <g
+                data-name="menu"
+                fill="#ffffff"
+                className="color000000 svgShape"
+              >
                 <rect
                   width="18"
                   height="2"
@@ -23,7 +31,7 @@ function Header() {
                   rx=".95"
                   ry=".95"
                   fill="#ffffff"
-                   className="color000000 svgShape"
+                  className="color000000 svgShape"
                 ></rect>
                 <rect
                   width="18"
@@ -33,7 +41,7 @@ function Header() {
                   rx=".95"
                   ry=".95"
                   fill="#ffffff"
-                   className="color000000 svgShape"
+                  className="color000000 svgShape"
                 ></rect>
                 <rect
                   width="18"
@@ -43,7 +51,7 @@ function Header() {
                   rx=".95"
                   ry=".95"
                   fill="#ffffff"
-                   className="color000000 svgShape"
+                  className="color000000 svgShape"
                 ></rect>
               </g>
             </g>
@@ -62,22 +70,22 @@ function Header() {
               <g
                 data-name="Layer 2"
                 fill="#ffffff"
-                 className="color000000 svgShape"
+                className="color000000 svgShape"
               >
                 <g
                   data-name="arrowhead-down"
                   fill="#ffffff"
-                   className="color000000 svgShape"
+                  className="color000000 svgShape"
                 >
                   <path
                     d="M17.37 12.39 12 16.71l-5.36-4.48a1 1 0 1 0-1.28 1.54l6 5a1 1 0 0 0 1.27 0l6-4.83a1 1 0 0 0 .15-1.41 1 1 0 0 0-1.41-.14z"
                     fill="#ffffff"
-                     className="color000000 svgShape"
+                    className="color000000 svgShape"
                   ></path>
                   <path
                     d="M11.36 11.77a1 1 0 0 0 1.27 0l6-4.83a1 1 0 0 0 .15-1.41 1 1 0 0 0-1.41-.15L12 9.71 6.64 5.23a1 1 0 0 0-1.28 1.54z"
                     fill="#ffffff"
-                     className="color000000 svgShape"
+                    className="color000000 svgShape"
                   ></path>
                 </g>
               </g>
@@ -123,6 +131,10 @@ const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 999;
   img {
     max-width: 150px;
     cursor: pointer;
@@ -131,12 +143,16 @@ const HeaderSection = styled.div`
     @media (max-width: 1000px) {
       display: none;
     }
+    
+  }
+  @media (max-width: 576px) {
+    padding: 0px 10px;
   }
 `;
 const NavBar = styled.nav`
-height: 100%;
-display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
   #check,
   .checkedbtn {
     display: none;
@@ -150,6 +166,7 @@ display: flex;
     display: flex;
     transition: all 0.3s;
     align-items: center;
+    margin-bottom: unset;
   }
   li {
     height: 100%;
@@ -187,7 +204,7 @@ display: flex;
       padding: 0px 18px;
     }
   }
-  
+
   .dropdown {
     width: 200px;
     border: 1px solid black;
@@ -218,8 +235,8 @@ display: flex;
   }
 
   //using media query for navigation bar
-  @media (max-width: 1125px){
-    li{
+  @media (max-width: 1125px) {
+    li {
       padding: 35px 20px;
     }
   }
@@ -230,13 +247,12 @@ display: flex;
     //css logic for toggle .menu
 
     #check:checked ~ .menu {
-      opacity  : 1;
+      opacity: 1;
       z-index: 1;
     }
     .menu {
       position: absolute;
-      min-height: 50vh;
-      width: 80vw;
+      min-height: 100vh;
       margin: 0 auto;
       overflow: hidden;
       opacity: 0;
@@ -289,6 +305,7 @@ display: flex;
       }
     }
   }
+ 
 `;
 
 export default Header;
