@@ -248,7 +248,7 @@ const NavBar = styled.nav`
 
     #check:checked ~ .menu {
       opacity: 1;
-      z-index: 1;
+      visibility: visible;
     }
     .menu {
       position: absolute;
@@ -256,13 +256,13 @@ const NavBar = styled.nav`
       margin: 0 auto;
       overflow: hidden;
       opacity: 0;
+      visibility: hidden;
       left: 0;
       right: 0;
       top: 15vh;
       background: var(--white);
       flex-direction: column;
       align-items: normal;
-      z-index: -999;
     }
     li {
       display: block;

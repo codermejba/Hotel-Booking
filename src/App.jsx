@@ -4,6 +4,7 @@ import ExtraSurvice from './components/ExtraSurvice'
 import FeatureSection from './components/FeatureSection'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import HomeBlog from './components/HomeBlog'
 import Landing from './components/Landing'
 import OurRooms from './components/OurRooms'
 import RoomCheckout from './components/RoomCheckout'
@@ -22,6 +23,7 @@ function App() {
     <VideoArea/>
     <ExtraSurvice/>
     <FeatureSection/>
+    <HomeBlog/>
     <Footer/>
     </>
   )
