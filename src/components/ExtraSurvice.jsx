@@ -113,7 +113,7 @@ const ExtraSurvice = () => {
   ];
 
   return (
-    <Main>
+    <Main className="container">
       {survices.map(({ title, details, icon }) => (
         <Survices key={title}>
           <div className="icon">{icon}</div>
@@ -131,7 +131,6 @@ const Main = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  padding: 50px;
   @media (min-width: 1300px) {
     max-width: 1300px;
     margin: 0 auto;

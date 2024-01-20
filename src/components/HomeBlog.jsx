@@ -54,6 +54,7 @@ const Main = styled.div`
  // padding: 50px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 50px;
 `;
 const TopSection = styled.div`
   display: flex;

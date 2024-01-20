@@ -1,29 +1,25 @@
 
-import Accommodations from './components/Accommodations'
-import ExtraSurvice from './components/ExtraSurvice'
-import FeatureSection from './components/FeatureSection'
+import ContactPage from './components/ContactPage'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import HomeBlog from './components/HomeBlog'
-import Landing from './components/Landing'
-import OurRooms from './components/OurRooms'
-import RoomCheckout from './components/RoomCheckout'
-import VideoArea from './components/VideoArea'
-
+import {Routes,Route} from 'react-router-dom'
+import HomePage from './components/HomePage'
 function App() {
 
   
   return (
     <>
     <Header/>
-    <Landing/>
-    <RoomCheckout/>
-    <Accommodations/>
-    <OurRooms/>
-    <VideoArea/>
-    <ExtraSurvice/>
-    <FeatureSection/>
-    <HomeBlog/>
+   
+    
+    
+
+    <Routes>
+      <Route path='/' element={<HomePage/>}/>
+      <Route path='contact' element={<ContactPage/>}/>
+    </Routes>
+    
+    
     <Footer/>
     </>
   )

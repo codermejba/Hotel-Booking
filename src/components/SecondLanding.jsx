@@ -4,7 +4,7 @@ import { ReadButton } from "../assets/styled/ReadButton";
 
 function Accommodations() {
   return (
-    <AccommodationsSection>
+    <AccommodationsSection >
       <div className="ContentSide">
         <div className="leftSide">
           <span>Accommodations</span>

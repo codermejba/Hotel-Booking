@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../assets/styled/Button";
-
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <HeaderSection>
@@ -58,7 +58,7 @@ function Header() {
           </svg>
         </label>
         <ul className="menu">
-          <li>Home</li>
+          <li><Link to='/'>Home</Link></li>
           <li>Pages</li>
           <li>
             Room
@@ -98,7 +98,7 @@ function Header() {
             </ul>
           </li>
           <li>Blog</li>
-          <li>Contact</li>
+          <li><Link to='contact'>Contact</Link></li>
         </ul>
       </NavBar>
       <div className="bookNowBtn">
@@ -181,13 +181,19 @@ const NavBar = styled.nav`
     padding: 0px 30px;
     font-family: var(--heading-font);
     cursor: pointer;
+    a{
+    transition: color 0.4s ease-out 0s;
+
+    color: var(--white);
+
+    }
     svg {
       height: 15px;
       margin: 5px;
       transition: all 0.3s;
     }
 
-    &:hover {
+    &:hover,a:hover {
       color: var(--primary-color);
       z-index: 1;
     }
