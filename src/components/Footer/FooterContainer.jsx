@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import SocialLinkIcons from "./SocialLinkIcons";
-import Information from "./Information";
-import DownArrowIcon from "../../public/icon/DownArrowIcon";
-import DoneIcon from "../../public/icon/DoneIcon";
+import SocialLinkIcons from "../SocialLinkIcons";
+import Information from "../Information";
+import DownArrowIcon from "../../../public/icon/DownArrowIcon";
+import DoneIcon from "../../../public/icon/DoneIcon";
 
 const FooterContainer = () => {
   return (

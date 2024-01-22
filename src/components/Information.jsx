@@ -1,6 +1,8 @@
 import React from "react";
-import Callicon from "../../public/icon/Callicon";
 import styled from "styled-components";
+
+//icons
+import Callicon from "../../public/icon/Callicon";
 import MailIcon from "../../public/icon/MailIcon";
 import MapIcon from "../../public/icon/MapIcon";
 

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Button } from "../assets/styled/Button";
 import { Link } from "react-router-dom";
+import MenuIcon from "../../public/icon/MenuIcon";
+import DropDownArrowIcon from "../../public/icon/DropDownArrowIcon";
 function Header() {
   return (
     <HeaderSection>
@@ -12,84 +14,14 @@ function Header() {
       <NavBar>
         <input type="checkbox" id="check" />
         <label htmlFor="check" className="checkedbtn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Menu">
-            <g
-              data-name="Layer 2"
-              fill="#ffffff"
-              className="color000000 svgShape"
-            >
-              <g
-                data-name="menu"
-                fill="#ffffff"
-                className="color000000 svgShape"
-              >
-                <rect
-                  width="18"
-                  height="2"
-                  x="3"
-                  y="11"
-                  rx=".95"
-                  ry=".95"
-                  fill="#ffffff"
-                  className="color000000 svgShape"
-                ></rect>
-                <rect
-                  width="18"
-                  height="2"
-                  x="3"
-                  y="16"
-                  rx=".95"
-                  ry=".95"
-                  fill="#ffffff"
-                  className="color000000 svgShape"
-                ></rect>
-                <rect
-                  width="18"
-                  height="2"
-                  x="3"
-                  y="6"
-                  rx=".95"
-                  ry=".95"
-                  fill="#ffffff"
-                  className="color000000 svgShape"
-                ></rect>
-              </g>
-            </g>
-          </svg>
+          <MenuIcon/>
         </label>
         <ul className="menu">
           <li><Link to='/'>Home</Link></li>
-          <li>Pages</li>
+          <li><Link to='error page'>pages</Link></li>
           <li>
             Room
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="DownArrow"
-            >
-              <g
-                data-name="Layer 2"
-                fill="#ffffff"
-                className="color000000 svgShape"
-              >
-                <g
-                  data-name="arrowhead-down"
-                  fill="#ffffff"
-                  className="color000000 svgShape"
-                >
-                  <path
-                    d="M17.37 12.39 12 16.71l-5.36-4.48a1 1 0 1 0-1.28 1.54l6 5a1 1 0 0 0 1.27 0l6-4.83a1 1 0 0 0 .15-1.41 1 1 0 0 0-1.41-.14z"
-                    fill="#ffffff"
-                    className="color000000 svgShape"
-                  ></path>
-                  <path
-                    d="M11.36 11.77a1 1 0 0 0 1.27 0l6-4.83a1 1 0 0 0 .15-1.41 1 1 0 0 0-1.41-.15L12 9.71 6.64 5.23a1 1 0 0 0-1.28 1.54z"
-                    fill="#ffffff"
-                    className="color000000 svgShape"
-                  ></path>
-                </g>
-              </g>
-            </svg>
+           <DropDownArrowIcon/>
             <ul className="dropdown">
               <li>Room Style</li>
               <li>Room Modern</li>
@@ -234,6 +166,7 @@ const NavBar = styled.nav`
       align-items: center;
       padding: 10px 20px;
       border-bottom: 1px solid var(--black);
+     
       &:hover {
         color: var(--primary-color);
       }
@@ -273,6 +206,13 @@ const NavBar = styled.nav`
     li {
       display: block;
       color: var(--black);
+      a{
+      color: var(--black);
+&:hover{
+  color: var(--black);
+
+}
+      }
       padding: 15px 35px;
       height: unset;
       border-bottom: 1px solid var(--primary-color);

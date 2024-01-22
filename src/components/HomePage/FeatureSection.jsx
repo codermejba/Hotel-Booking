@@ -4,8 +4,8 @@ import React from 'react'
 import styled from 'styled-components'
 // index.js or index.jsx
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ReadButton2 } from '../assets/styled/ReadButton2';
-import RightArrow from '../../public/icon/RightArrow';
+import { ReadButton2 } from '../../assets/styled/ReadButton2';
+import RightArrow from '../../../public/icon/RightArrow';
 
 const FeatureSection = () => {
   return (

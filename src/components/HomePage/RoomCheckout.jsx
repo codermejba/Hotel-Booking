@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../assets/styled/Button";
+import { Button } from "../../assets/styled/Button";
 
 const RoomCheckout = () => {
   const [count, setCount] = useState(1);

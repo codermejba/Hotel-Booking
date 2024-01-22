@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Information from "./Information";
-import SocialLinkIcons from "./SocialLinkIcons";
-import FooterContainer from "./FooterContainer";
+import FooterContainer from "./Footer/FooterContainer";
 
 function Footer() {
   return (

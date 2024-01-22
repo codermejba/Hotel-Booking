@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Rooms, RoomsType } from "../assets/json/Rooms";
+import { Rooms, RoomsType } from "../../assets/json/Rooms";
 import styled from "styled-components";
 
 function OurRooms() {

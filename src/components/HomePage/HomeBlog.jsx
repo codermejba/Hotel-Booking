@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Blogs } from "../assets/json/Blogs";
+import { Blogs } from "../../assets/json/Blogs";
 
 function HomeBlog() {
   return (

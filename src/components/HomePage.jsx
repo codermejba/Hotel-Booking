@@ -1,11 +1,11 @@
-import ExtraSurvice from './ExtraSurvice'
-import Landing from "./Landing";
-import RoomCheckout from "./RoomCheckout";
-import OurRooms from "./OurRooms";
-import VideoArea from "./VideoArea";
-import HomeBlog from "./HomeBlog";
-import FeatureSection from './FeatureSection'
-import SecondLanding from './SecondLanding'
+import ExtraSurvice from './HomePage/ExtraSurvice'
+import Landing from "./HomePage/Landing";
+import RoomCheckout from "./HomePage/RoomCheckout";
+import OurRooms from "./HomePage/OurRooms";
+import VideoArea from "./HomePage/VideoArea";
+import HomeBlog from "./HomePage/HomeBlog";
+import FeatureSection from './HomePage/FeatureSection'
+import SecondLanding from './HomePage/SecondLanding'
 
 const HomePage = () => {
   return (
