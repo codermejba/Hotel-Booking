@@ -124,8 +124,9 @@ const BlogSection = styled.div`
           margin-top: 0px;
           opacity: 0;
           visibility: hidden;
-          font-size: 22px;
+          font-size: 18px;
           transition: all .3s;
+          text-transform: uppercase;
           color: var(--heading-color);
           svg {
             margin-left: 10px;
@@ -167,5 +168,13 @@ const BlogSection = styled.div`
         height: 400px;
     }
   }
+  @media (max-width: 359px){
+.blogs .contentSection {
+    margin: -80px 10px 0;
+}}
+@media (max-width: 420px){
+.blogs .contentSection {
+    padding: 30px 20px;
+}}
 `;
 export default HomeBlog;

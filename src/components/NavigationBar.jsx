@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "../assets/styled/Button";
 import { Link } from "react-router-dom";
 import MenuIcon from "../../public/icon/MenuIcon";
 import DropDownArrowIcon from "../../public/icon/DropDownArrowIcon";
+import Hamburger from "../assets/styled/Hamburger";
 function Header() {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <HeaderSection>
       <div>
@@ -12,17 +14,18 @@ function Header() {
       </div>
 
       <NavBar>
-        <input type="checkbox" id="check" />
-        <label htmlFor="check" className="checkedbtn">
-          <MenuIcon/>
-        </label>
-        <ul className="menu">
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='error page'>pages</Link></li>
+        <Hamburger showMenu={showMenu} setShowMenu={setShowMenu} />
+        <ul className={"menu" + (showMenu ? " visible" : "") } >
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="error page">pages</Link>
+          </li>
           <li>
             Room
-           <DropDownArrowIcon/>
-            <ul className="dropdown">
+            <DropDownArrowIcon />
+            <ul className='dropdown'>
               <li>Room Style</li>
               <li>Room Modern</li>
               <li>Room List</li>
@@ -30,7 +33,9 @@ function Header() {
             </ul>
           </li>
           <li>Blog</li>
-          <li><Link to='contact'>Contact</Link></li>
+          <li>
+            <Link to="contact">Contact</Link>
+          </li>
         </ul>
       </NavBar>
       <div className="bookNowBtn">
@@ -75,7 +80,6 @@ const HeaderSection = styled.div`
     @media (max-width: 1000px) {
       display: none;
     }
-    
   }
   @media (max-width: 576px) {
     padding: 0px 10px;
@@ -85,18 +89,15 @@ const NavBar = styled.nav`
   height: 100%;
   display: flex;
   align-items: center;
-  #check,
-  .checkedbtn {
-    display: none;
-    cursor: pointer;
-  }
-  .checkedbtn svg {
-    height: 50px;
+
+  .visible {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .menu {
     height: 100%;
     display: flex;
-    transition: all 0.3s;
+    transition: all 0.5s;
     align-items: center;
     margin-bottom: unset;
   }
@@ -113,11 +114,10 @@ const NavBar = styled.nav`
     padding: 0px 30px;
     font-family: var(--heading-font);
     cursor: pointer;
-    a{
-    transition: color 0.4s ease-out 0s;
+    a {
+      transition: color 0.4s ease-out 0s;
 
-    color: var(--white);
-
+      color: var(--white);
     }
     svg {
       height: 15px;
@@ -125,7 +125,8 @@ const NavBar = styled.nav`
       transition: all 0.3s;
     }
 
-    &:hover,a:hover {
+    &:hover,
+    a:hover {
       color: var(--primary-color);
       z-index: 1;
     }
@@ -166,7 +167,7 @@ const NavBar = styled.nav`
       align-items: center;
       padding: 10px 20px;
       border-bottom: 1px solid var(--black);
-     
+
       &:hover {
         color: var(--primary-color);
       }
@@ -180,15 +181,6 @@ const NavBar = styled.nav`
     }
   }
   @media (max-width: 1000px) {
-    .checkedbtn {
-      display: block;
-    }
-    //css logic for toggle .menu
-
-    #check:checked ~ .menu {
-      opacity: 1;
-      visibility: visible;
-    }
     .menu {
       position: absolute;
       min-height: 100vh;
@@ -206,12 +198,11 @@ const NavBar = styled.nav`
     li {
       display: block;
       color: var(--black);
-      a{
-      color: var(--black);
-&:hover{
-  color: var(--black);
-
-}
+      a {
+        color: var(--black);
+        &:hover {
+          color: var(--black);
+        }
       }
       padding: 15px 35px;
       height: unset;
@@ -251,7 +242,6 @@ const NavBar = styled.nav`
       }
     }
   }
- 
 `;
 
 export default Header;

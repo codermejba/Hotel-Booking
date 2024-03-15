@@ -2,9 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Error404 from '../../../public/icon/Error404';
 import { ReadButton } from '../../assets/styled/ReadButton';
+import NavigationBar from '../NavigationBar'
+import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
   return (
+    <>
     <Main>
       <TopSection className="  position-relative ">
         <div className="contactBgImg position-absolute top-0 h-100 w-100 "></div>
@@ -20,12 +23,15 @@ const ErrorPage = () => {
         < ButtomSection>
 
             <Error404/>
-            <ReadButton>
+            <Link to ="/">
+            <ReadButton >
                 back to home
             </ReadButton>
+            </Link>
         </ButtomSection>
       </div>
     </Main>
+    </>
   )
 }
 

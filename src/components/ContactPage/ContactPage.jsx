@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import NavigationBar from "../NavigationBar";
 import ContactName from "../../../public/icon/ContactIcon";
 import MailIcon from "../../../public/icon/MailIcon";
 import Callicon from "../../../public/icon/Callicon";

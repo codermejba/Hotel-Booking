@@ -49,7 +49,7 @@ const Landing = () => {
 };
 
 const LandingSection = styled.div`
-  height: 100vh;
+  height: 85vh;
   .landingBg {
     height: 50%;
     display: flex;
@@ -100,7 +100,7 @@ const LandingSection = styled.div`
     top: 0;
     left: 0;
     background: url(img/benner.jpg) center center/cover;
-    height: 135%;
+    height: 100%;
     width: 100%;
     z-index: -1;
   }
@@ -110,7 +110,7 @@ const LandingSection = styled.div`
     top: 0;
     left: 0;
     background: linear-gradient(#00000082, #00000036);
-    height: 135%;
+    height: 100%;
     width: 100%;
     z-index: -1;
   }
