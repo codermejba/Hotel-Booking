@@ -15,7 +15,7 @@ const ErrorPage = () => {
           <h2 className="text-center">Not Found</h2>
 
           <div>
-            <a href="#">Home</a> - <span>404 page</span>
+            <Link to="/">Home</Link> - <span>404 page</span>
           </div>
         </div>
       </TopSection>
