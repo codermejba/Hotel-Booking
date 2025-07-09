@@ -50,3 +50,12 @@ h2,h5,span{
 body {
   font-family: var(--body-font);
 }
+.primary-color {
+  color: var(--primary-color);
+}
+.primary-bg{
+  background-color: var(--primary-color);
+}
+.primary-border{
+  border-color: var(--primary-color) !important;
+}

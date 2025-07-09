@@ -1,14 +1,13 @@
 import styled from "styled-components";
-import NavigationBar from "../NavigationBar";
-import ContactName from "../../../public/icon/ContactIcon";
-import MailIcon from "../../../public/icon/MailIcon";
-import Callicon from "../../../public/icon/Callicon";
-import Subjecticon from "../../../public/icon/Subjecticon";
-import Commentsicon from "../../../public/icon/Commentsicon";
-import { ReadButton } from "../../assets/styled/ReadButton";
-import RightArrow from "../../../public/icon/RightArrow";
-import Information from "../Information";
-import SocialLinkIcons from "../SocialLinkIcons";
+import ContactName from "../../public/icon/ContactIcon";
+import MailIcon from "../../public/icon/MailIcon";
+import Callicon from "../../public/icon/Callicon";
+import Subjecticon from "../../public/icon/Subjecticon";
+import Commentsicon from "../../public/icon/Commentsicon";
+import { ReadButton } from "../assets/styled/ReadButton";
+import RightArrow from "../../public/icon/RightArrow";
+import Information from "../components/Information";
+import SocialLinkIcons from "../components/SocialLinkIcons";
 const ContactPage = () => {
   return (
     <Main >

@@ -9,33 +9,35 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <HeaderSection>
-      <div>
+      <Link to="/">
         <img src="/img/logo.png" alt="" />
-      </div>
+      </Link>
 
       <NavBar>
         <Hamburger showMenu={showMenu} setShowMenu={setShowMenu} />
-        <ul className={"menu" + (showMenu ? " visible" : "") } >
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="error page">pages</Link>
-          </li>
+        <ul className={"menu" + (showMenu ? " visible" : "")}>
+          <Link to="/">
+            <li onClick={() => setShowMenu(false)}>Home</li>
+          </Link>
+          <Link to="error page">
+            <li onClick={() => setShowMenu(false)}>pages</li>
+          </Link>
           <li>
             Room
             <DropDownArrowIcon />
-            <ul className='dropdown'>
+            <ul className="dropdown">
               <li>Room Style</li>
               <li>Room Modern</li>
               <li>Room List</li>
               <li>Room Details</li>
             </ul>
           </li>
-          <li>Blog</li>
-          <li>
-            <Link to="contact">Contact</Link>
-          </li>
+          <Link to={"blogs"}>
+            <li onClick={() => setShowMenu(false)}>Blogs</li>
+          </Link>
+          <Link to="contact">
+            <li onClick={() => setShowMenu(false)}>Contact</li>
+          </Link>
         </ul>
       </NavBar>
       <div className="bookNowBtn">
