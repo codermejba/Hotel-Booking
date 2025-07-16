@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { loginUser } from "../services/AuthServices";
 import { useNavigate } from "react-router-dom";
 import LoadingEffect from "../components/LoadingEffect";
+import { Button } from "../assets/styled/Button";
 
 const Auth = () => {
   const [loading, setLoading] = useState(false);
@@ -42,18 +43,20 @@ const Auth = () => {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div className=" d-flex justify-content-center align-items-center py-5 bg-light">
       <ToastContainer />
       <div
-        className="card p-4 shadow-sm"
+        className="card p-4 shadow-sm py-5 my-5"
         style={{ width: "100%", maxWidth: "400px" }}
       >
         <h2 className="text-center mb-4">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-3">
-            <label htmlFor="email"  className="form-label">Email address</label>
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
             <input
-            id="email"
+              id="email"
               type="email"
               className={`form-control ${errors.email ? "is-invalid" : ""}`}
               placeholder="Enter email"
@@ -65,9 +68,11 @@ const Auth = () => {
           </div>
 
           <div className="mb-3 position-relative">
-            <label htmlFor="password"  className="form-label">Password</label>
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
-            id="password"
+              id="password"
               type={showPassword ? "text" : "password"}
               className={`form-control ${errors.password ? "is-invalid" : ""}`}
               placeholder="Password"
@@ -84,23 +89,19 @@ const Auth = () => {
             <button
               type="button"
               className=" bg-transparent border-0 position-absolute bottom-0 end-0 me-2"
-              style={{ transform: 'translateY(-35%)'}}
+              style={{ transform: "translateY(-35%)" }}
               onClick={() => setShowPassword((prev) => !prev)}
               tabIndex={-1}
             >
               <i
-                className={`bi ${showPassword ? "bi-eye" :"bi-eye-slash" }`}
+                className={`bi ${showPassword ? "bi-eye" : "bi-eye-slash"}`}
               ></i>
             </button>
           </div>
-
-          <button
-            type="submit"
-            className=" text-white  btn primary-bg border-1 primary-border link-dark w-100 position-relative "
-          >
-            <LoadingEffect loading={loading} />
-            Login
-          </button>
+            <Button type="submit" className="w-100 justify-content-center">
+              <LoadingEffect loading={loading} />
+              Login
+            </Button>
         </form>
       </div>
     </div>
