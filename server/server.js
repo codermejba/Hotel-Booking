@@ -11,14 +11,15 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use(cors({
-    origin:['http://localhost:5173'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization'],
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://hotel-booking-beta-wine.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-}));
-
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 
 app.get("/", (req, res) => {
