@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 const AdminSidebar = () => (
-  <div className="bg-dark text-white p-3" style={{ width: "250px", minHeight: "100vh" }}>
+  <div className=" position-sticky top-0" style={{ width: "250px", height: "100vh" }}>
+    <div className="bg-dark text-white p-3 h-100">
     <h5 className="mb-4">Admin Panel</h5>
     <ul className="nav flex-column">
       <li className="nav-item">
@@ -23,6 +24,7 @@ const AdminSidebar = () => (
         <Link to="/dashboard/create-user" className="nav-link text-white">➕ Add User</Link>
       </li>
     </ul>
+  </div>
   </div>
 );
 

@@ -13,7 +13,7 @@ const AdminLayout = ({ children }) => {
         <AdminTopbar />
         
         {/* Main Page Content */}
-        <main className="flex-grow-1 p-4 bg-light">
+        <main className="flex-grow-1 p-4 bg-white">
           {children}
         </main>
       </div>

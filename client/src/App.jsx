@@ -12,12 +12,13 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from "./services/ProtectedRoute";
 import WriteBlog from "./pages/dashboard/WriteBlog";
+import BlogsModification from "./pages/dashboard/BlogsModification";
 import Blogs from "./pages/Blogs";
 import { useEffect } from "react";
 function App() {
   const location=useLocation();
   const isDashboardPage = location.pathname === "/dashboard";
-   const hideLayout =["/admin","/dashboard",'/dashboard/write-blog'].includes(location.pathname);
+   const hideLayout =["/admin","/dashboard",'/dashboard/write-blog',"/dashboard/blogs"].includes(location.pathname);
    console.log(hideLayout);
    
      useEffect(() => {
@@ -44,6 +45,11 @@ function App() {
         <Route path="/dashboard/write-blog" element={
           <ProtectedRoute>
             <WriteBlog />
+          </ProtectedRoute>
+        } />
+        <Route path="/dashboard/blogs" element={
+          <ProtectedRoute>
+            <BlogsModification />
           </ProtectedRoute>
         } />
 

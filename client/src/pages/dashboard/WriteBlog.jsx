@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import 'react-quill/dist/quill.snow.css';
+
+import ReactQuill from 'react-quill';
+import { set, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { createBlogs } from "../../services/BlogsService";
 
 const WriteBlog = () => {
   const [imagePreview, setImagePreview] = useState(null);
-
 
   const {
     register,
@@ -24,18 +26,20 @@ const handleImageChange = (e) => {
   }
 };
   const onSubmit = async (data) => {
-    try {
+
+ try { 
       const response = await createBlogs(data);
       if (response.error) {
         throw new Error(response.message);
       }
       toast.success(response.message);
       reset();
+      setImagePreview(null);
     } catch (error) {
      console.error(error.message);
      toast.error(error.message);
      
-    }
+    }  
   };
 
   return (
@@ -68,11 +72,12 @@ const handleImageChange = (e) => {
             </label>
             <textarea
               id="content"
-              rows="6"
+              type="text"
+              rows={5}
               className={`form-control ${errors.content ? "is-invalid" : ""}`}
-              placeholder="Write blog content here..."
+              placeholder="Enter blog content"
               {...register("content", { required: "Content is required" })}
-            ></textarea>
+            />
             {errors.content && (
               <div className="invalid-feedback">{errors.content.message}</div>
             )}

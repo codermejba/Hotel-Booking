@@ -30,13 +30,10 @@ export const createBlogs = async (data) => {
 export const getAllBlogs = async () => {
   try {
     const res = await fetch(`${API_BASE_URL}/blogs/all`);
-    console.log(API_BASE_URL);
-    
     const data = await res.json();
-    console.log(data);
-    if (!res.ok) throw new Error(data.error || "Failed to fetch blogs");
+    if (!res.ok) throw new Error("Failed to fetch blogs");
     return { success: true, data };
-  } catch (err) {
-    return { success: false, message: err.message };
+  } catch (error) {
+    return { error: true, message: 'No Blogs Found' };
   }
 };

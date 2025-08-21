@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AdminLayout from "../../components/admin/AdminLayout";
+import { getAllBlogs } from "../../services/BlogsService";
 
 const Dashboard = () => {
+  const [blogs, setBlogs] = React.useState([]);
   const fakeSummary = {
     rooms: 8,
     bookings: 21,
-    blogs: 3,
     users: 2,
   };
+
+const getBlogs = async () => {
+  try {
+    const result = await getAllBlogs();
+    
+    if (result.error) {
+      throw new Error(result.message);
+    }
+
+    setBlogs(result.data);
+    return { success: true, message: 'Welcome to our blog' };
+  } catch (error) {
+console.error(error);
+
+  }
+}
+useEffect(() => {
+  getBlogs();
+  
+}, []);
 
   return (
     <AdminLayout>
@@ -51,7 +72,7 @@ const Dashboard = () => {
               <div className="card-body text-center">
                 <i className="bi bi-journal-text fs-2 text-warning"></i>
                 <h6 className="mt-2">Blogs</h6>
-                <p className="fs-4 fw-bold">{fakeSummary.blogs}</p>
+                <p className="fs-4 fw-bold">{blogs.length}</p>
                 <Link to="/dashboard/blogs" className="btn btn-sm btn-outline-warning">
                   View Blogs
                 </Link>

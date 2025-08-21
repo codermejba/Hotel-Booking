@@ -3,13 +3,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 // index.js or index.jsx
-import "bootstrap/dist/css/bootstrap.min.css";
-import { ReadButton2 } from "../assets/styled/ReadButton2";
-import RightArrow from "/public/icon/RightArrow";
-import { getAllBlogs } from "../services/BlogsService";
-import { toast, ToastContainer } from "react-toastify";
 
-const Blogs = () => {
+import { toast, ToastContainer } from "react-toastify";
+import AdminLayout from "../../components/admin/AdminLayout";
+import { ReadButton2 } from "../../assets/styled/ReadButton2";
+import RightArrow from "../../../public/icon/RightArrow";
+import { getAllBlogs } from "../../services/BlogsService";
+
+const BlogsModification = () => {
   const [blogs, setBlogs] = useState([]);
   const getBlogs = async () => {
     try {
@@ -29,12 +30,12 @@ console.error(error);
   };
 
   useEffect(() => {
-   console.log(blogs );
    
     getBlogs()
   }, []);
   return (
-    <Main className="container">
+   <AdminLayout>
+     <Main className="container">
       <div className="d-flex flex-column gap-3" bis_skin_checked="1">
         <ToastContainer />
         {Array.isArray(blogs) && blogs.length > 0 ?( blogs.map((blog) => (
@@ -51,8 +52,9 @@ console.error(error);
                 <div className="p-5" bis_skin_checked="1">
                   <span>{blog.category}</span>
                   <h2>{blog.title}</h2>
-                  <p>{blog.content}</p>
-
+                  <p>
+                    {blog.content}
+                  </p>
                   <ReadButton2>
                     read more
                     <RightArrow />
@@ -81,6 +83,7 @@ console.error(error);
       
       </div>
     </Main>
+   </AdminLayout>
   );
 };
 const Main = styled.div`
@@ -169,4 +172,4 @@ const Main = styled.div`
     }
   }
 `;
-export default Blogs;
+export default BlogsModification;
