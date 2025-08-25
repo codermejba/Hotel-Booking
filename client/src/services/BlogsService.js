@@ -37,3 +37,18 @@ export const getAllBlogs = async () => {
     return { error: true, message: 'No Blogs Found' };
   }
 };
+
+export const deleteBlog = async (id) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/blogs/${id}`, {
+      method: "DELETE",
+    });
+    const result = await response.json();
+    if (!response.ok) {
+      throw new Error(result.message || "Failed to delete blog");
+    }
+    return result;
+  } catch (error) {
+    return { error: true, message: error.message };
+  }
+};

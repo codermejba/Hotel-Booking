@@ -56,3 +56,25 @@ export const getAllBlogs = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch blogs" });
   }
 };
+
+// @route Delete /api/blogs/:id
+export const deleteBlog = async (req, res) => {
+  try {
+   const blog = await Blog.findById(req.params.id);
+   if (!blog) {
+    return res.status(404).json({ error: "Blog not found" });
+   }
+   
+   // Remove image from Cloudinary if it exists
+
+    if (blog.image) {
+      // extract public_id from blog.image (Cloudinary URL)
+      const publicId = blog.image.split("/").pop().split(".")[0];
+      await cloudinary.uploader.destroy(`blogs/${publicId}`);
+    }
+    await blog.deleteOne();
+    res.status(200).json({ message: "Blog deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete blog" });
+  }
+};

@@ -1,91 +1,120 @@
-//This section maked by Bootstrap
-
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-// index.js or index.jsx
-
 import { toast, ToastContainer } from "react-toastify";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { ReadButton2 } from "../../assets/styled/ReadButton2";
 import RightArrow from "../../../public/icon/RightArrow";
-import { getAllBlogs } from "../../services/BlogsService";
+import { getAllBlogs, deleteBlog } from "../../services/BlogsService";
 
 const BlogsModification = () => {
   const [blogs, setBlogs] = useState([]);
+  const [openMenuId, setOpenMenuId] = useState(null);
+  const menuRef = useRef(null);
+
   const getBlogs = async () => {
     try {
       const result = await getAllBlogs();
-      
-      if (result.error) {
-        throw new Error(result.message);
-      }
-
-      
+      if (result.error) throw new Error(result.message);
       setBlogs(result.data);
-      return { success: true, message: 'Welcome to our blog' };
     } catch (error) {
-console.error(error);
-
+      console.error(error);
     }
   };
 
   useEffect(() => {
-   
-    getBlogs()
+    getBlogs();
   }, []);
+
+
+  const handleToggleMenu = (id) => {
+    setOpenMenuId(openMenuId === id ? null : id);
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this blog?")) return;
+
+    const result = await deleteBlog(id);
+    if (result.error) {
+      toast.error(result.message || "Failed to delete blog");
+    } else {
+      toast.success(result.message || "Blog deleted successfully");
+      setBlogs(blogs.filter((b) => b._id !== id)); // remove from UI
+      setOpenMenuId(null); // close dropdown
+    }
+  };
+
   return (
-   <AdminLayout>
-     <Main className="container">
-      <div className="d-flex flex-column gap-3" bis_skin_checked="1">
-        <ToastContainer />
-        {Array.isArray(blogs) && blogs.length > 0 ?( blogs.map((blog) => (
-          <div 
-          key={blog._id}
-          className="row align-items-center bg-right flex justify-between py-5"
-          bis_skin_checked="1"
-          >
-            <div
-              className="col-xl-6 col-lg-6 order-last order-lg-first"
-              bis_skin_checked="1"
-            >
-              <div className="content" bis_skin_checked="1">
-                <div className="p-5" bis_skin_checked="1">
-                  <span>{blog.category}</span>
-                  <h2>{blog.title}</h2>
-                  <p>
-                    {blog.content}
-                  </p>
-                  <ReadButton2>
-                    read more
-                    <RightArrow />
-                  </ReadButton2>
+    <AdminLayout>
+      <Main className="container">
+        <div className="d-flex flex-column gap-3">
+          <ToastContainer />
+          {Array.isArray(blogs) && blogs.length > 0 ? (
+            blogs.map((blog) => (
+              <div
+                key={blog._id}
+                className="row align-items-center bg-right flex justify-between py-5 position-relative"
+              >
+                {/* 3 dot menu */}
+                <div
+                  className="position-absolute top-0 end-0"
+                  ref={menuRef}
+                >
+                  <button
+                    className="btn"
+                    onClick={() => handleToggleMenu(blog._id)}
+                  >
+                    <i className="bi bi-three-dots"></i>
+                  </button>
+
+                  {openMenuId === blog._id && (
+                    <ul
+                      className="dropdown-menu show"
+                      style={{ display: "block" }}
+                    >
+                      <li>
+                        <button className="dropdown-item">✏️ Edit</button>
+                      </li>
+                      <li>
+                        <button
+                          className="dropdown-item text-danger"
+                          onClick={() => handleDelete(blog._id)}
+                        >
+                          🗑️ Delete
+                        </button>
+                      </li>
+                    </ul>
+                  )}
+                </div>
+
+                {/* Blog content */}
+                <div className="col-xl-6 col-lg-6 order-last order-lg-first">
+                  <div className="content p-5">
+                    <span>{blog.category}</span>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.content}</p>
+                    <ReadButton2>
+                      read more <RightArrow />
+                    </ReadButton2>
+                  </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 order-first order-lg-last">
+                  <div className="image">
+                    <img src={blog.image} alt={blog.title} loading="lazy" />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-xl-6 col-lg-6 order-first order-lg-last"
-              bis_skin_checked="1"
-            >
-              <div className="image" bis_skin_checked="1">
-                <img
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-nimg="1"
-                  src={blog.image}
-                />
-              </div>
-            </div>
-          </div>
-        ))):(
-          <p className=" vh-100 d-flex align-items-center justify-content-center">No Blogs Found</p>
-        )}
-      
-      </div>
-    </Main>
-   </AdminLayout>
+            ))
+          ) : (
+            <p className="vh-100 d-flex align-items-center justify-content-center">
+              No Blogs Found
+            </p>
+          )}
+        </div>
+      </Main>
+    </AdminLayout>
   );
 };
+
 const Main = styled.div`
   .bg-left,
   .bg-right {
@@ -172,4 +201,5 @@ const Main = styled.div`
     }
   }
 `;
+
 export default BlogsModification;
