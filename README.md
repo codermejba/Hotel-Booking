@@ -4,11 +4,11 @@ A full-stack hotel booking platform built with the MERN stack (MongoDB, Express,
 Users can browse hotels, search by date/location, and book rooms.
 Admins can manage hotels, rooms, and bookings.
 
-🌍 Live Demo
+## 🌍 Live Demo
 
-🔗 Frontend Live
+- 🔗 [Frontend Live](https://hotel-booking-i7ed.vercel.app)  
+- 🔗 [Backend API](https://hotel-booking-i7ed.onrender.com)  
 
-🔗 Backend API
 
 ⚡ Features
 
@@ -78,12 +78,8 @@ Admin Dashboard
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
 
-📧 Contact
-
-MD. Mejba Hasan
-
-🔗 LinkedIn
-
-🔗 GitHub
-
-📩 mail.mejbahasan@gmail.com
+## 📧 Contact  
+**MD. Mejba Hasan**  
+- 🔗 [LinkedIn](https://www.linkedin.com/in/mejbahasan/)  
+- 🔗 [GitHub](https://github.com/codermejba)  
+- 📩 mail.mejbahasan@gmail.com  
