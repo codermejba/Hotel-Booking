@@ -12,7 +12,8 @@ app.use(express.json());
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://hotel-booking-beta-wine.vercel.app",
+    "https://hotel-booking-beta-wine.vercel.app" ,
+    "https://hotel-booking-mejba-hasans-projects.vercel.app" ,
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
