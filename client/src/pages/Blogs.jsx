@@ -11,74 +11,82 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const getBlogs = async () => {
     try {
       const result = await getAllBlogs();
-      
+
       if (result.error) {
         throw new Error(result.message);
       }
 
-      
       setBlogs(result.data);
-      return { success: true, message: 'Welcome to our blog' };
+      return { success: true, message: "Welcome to our blog" };
     } catch (error) {
-console.error(error);
-
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-   console.log(blogs );
-   
-    getBlogs()
+    console.log(blogs);
+
+    getBlogs();
   }, []);
   return (
     <Main className="container">
       <div className="d-flex flex-column gap-3" bis_skin_checked="1">
         <ToastContainer />
-        {Array.isArray(blogs) && blogs.length > 0 ?( blogs.map((blog) => (
-          <div 
-          key={blog._id}
-          className="row align-items-center bg-right flex justify-between py-5"
-          bis_skin_checked="1"
-          >
+        {loading ? (
+          <h4 className=" vh-100 d-flex align-items-center justify-content-center">
+          Loading...
+          </h4>
+        ) : Array.isArray(blogs) && blogs.length > 0 ? (
+          blogs.map((blog) => (
             <div
-              className="col-xl-6 col-lg-6 order-last order-lg-first"
+              key={blog._id}
+              className="row align-items-center bg-right flex justify-between py-5"
               bis_skin_checked="1"
             >
-              <div className="content" bis_skin_checked="1">
-                <div className="p-5" bis_skin_checked="1">
-                  <span>{blog.category}</span>
-                  <h2>{blog.title}</h2>
-                  <p>{blog.content}</p>
+              <div
+                className="col-xl-6 col-lg-6 order-last order-lg-first"
+                bis_skin_checked="1"
+              >
+                <div className="content" bis_skin_checked="1">
+                  <div className="p-5" bis_skin_checked="1">
+                    <span>{blog.category}</span>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.content}</p>
 
-                  <ReadButton2>
-                    read more
-                    <RightArrow />
-                  </ReadButton2>
+                    <ReadButton2>
+                      read more
+                      <RightArrow />
+                    </ReadButton2>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-xl-6 col-lg-6 order-first order-lg-last"
+                bis_skin_checked="1"
+              >
+                <div className="image" bis_skin_checked="1">
+                  <img
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    data-nimg="1"
+                    src={blog.image}
+                  />
                 </div>
               </div>
             </div>
-            <div
-              className="col-xl-6 col-lg-6 order-first order-lg-last"
-              bis_skin_checked="1"
-            >
-              <div className="image" bis_skin_checked="1">
-                <img
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-nimg="1"
-                  src={blog.image}
-                />
-              </div>
-            </div>
-          </div>
-        ))):(
-          <p className=" vh-100 d-flex align-items-center justify-content-center">No Blogs Found</p>
+          ))
+        ) : (
+          <h4 className=" vh-100 d-flex align-items-center justify-content-center">
+            No Blogs Found
+          </h4>
         )}
-      
       </div>
     </Main>
   );
